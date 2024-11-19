@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Pemesanan Bunga Pick A Petal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300vh;
+            min-height: 300vh;
+            overflow: auto;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 100%;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 48%;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .minimize-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .reset-btn {
+            background-color: #ffc107;
+            color: white;
+        }
+        .minimize-btn:hover {
+            background-color: #d32f2f;
+        }
+        .reset-btn:hover {
+            background-color: #ff9800;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .btn-container {
+                flex-direction: column;
+            }
+            input[type="button"] {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kasir Pemesanan Bunga Pick A Petal</h2>
+        <h3>Masukkan sesuai nominal pemesanan bunga </h3>
+
+        <label for="mawar-quantity">Mawar (Rp 7.000): </label>
+        <input type="number" id="mawar-quantity" value="0" min="0">
+        <p id="mawar-total"></p>
+
+        <label for="lily-quantity">Lily (Rp 6.000): </label>
+        <input type="number" id="lily-quantity" value="0" min="0">
+        <p id="lily-total"></p>
+
+        <label for="tulip-quantity">Tulip (Rp 4.000): </label>
+        <input type="number" id="tulip-quantity" value="0" min="0">
+        <p id="tulip-total"></p>
+
+        <label for="matahari-quantity">Matahari (Rp 7.000): </label>
+        <input type="number" id="matahari-quantity" value="0" min="0">
+        <p id="matahari-total"></p>
+
+        <label for="daisy-quantity">Daisy (Rp 3.000): </label>
+        <input type="number" id="daisy-quantity" value="0" min="0">
+        <p id="daisy-total"></p>
+
+        <label for="gerbera-quantity">Gerbera (Rp 5.000): </label>
+        <input type="number" id="gerbera-quantity" value="0" min="0">
+        <p id="gerbera-total"></p>
+
+        <label for="lavender-quantity">Lavender (Rp 4.000): </label>
+        <input type="number" id="lavender-quantity" value="0" min="0">
+        <p id="lavender-total"></p>
+
+        <label for="sakura-quantity">Sakura (Rp 6.000): </label>
+        <input type="number" id="sakura-quantity" value="0" min="0">
+        <p id="sakura-total"></p>
+
+        <label for="simple-flower-quantity">Simple Flower (Rp 4.000): </label>
+        <input type="number" id="simple-flower-quantity" value="0" min="0">
+        <p id="simple-flower-total"></p>
+
+        <label for="topper-love-quantity">Topper Love (Rp 1.000): </label>
+        <input type="number" id="topper-love-quantity" value="0" min="0">
+        <p id="topper-love-total"></p>
+
+        <label for="topper-spiral-quantity">Topper Spiral (Rp 1.000): </label>
+        <input type="number" id="topper-spiral-quantity" value="0" min="0">
+        <p id="topper-spiral-total"></p>
+
+        <label for="eucalyptus-quantity">Eucalyptus (Rp 3.000): </label>
+        <input type="number" id="eucalyptus-quantity" value="0" min="0">
+        <p id="eucalyptus-total"></p>
+
+        <label for="single-leaf-quantity">Single Leaf (Rp 2.000): </label>
+        <input type="number" id="single-leaf-quantity" value="0" min="0">
+        <p id="single-leaf-total"></p>
+
+        <label for="triple-leaf-quantity">Triple Leaf (Rp 3.000): </label>
+        <input type="number" id="triple-leaf-quantity" value="0" min="0">
+        <p id="triple-leaf-total"></p>
+
+        <label for="classic-leaf-quantity">Classic Leaf (Rp 2.000): </label>
+        <input type="number" id="classic-leaf-quantity" value="0" min="0">
+        <p id="classic-leaf-total"></p>
+
+        <!-- Tombol untuk menghitung dan reset -->
+        <div class="btn-container">
+            <input type="button" value="Hitung Total" onclick="calculateTotal()">
+            <input type="button" class="reset-btn" value="Hapus Semua" onclick="resetAll()">
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let totalPrice = 0;
+
+            // Menghitung harga total berdasarkan jumlah input
+            const flowers = [
+                { id: 'mawar', price: 7000 },
+                { id: 'lily', price: 6000 },
+                { id: 'tulip', price: 4000 },
+                { id: 'matahari', price: 7000 },
+                { id: 'daisy', price: 3000 },
+                { id: 'gerbera', price: 5000 },
+                { id: 'lavender', price: 4000 },
+                { id: 'sakura', price: 6000 },
+                { id: 'simple-flower', price: 4000 },
+                { id: 'topper-love', price: 1000 },
+                { id: 'topper-spiral', price: 1000 },
+                { id: 'eucalyptus', price: 3000 },
+                { id: 'single-leaf', price: 2000 },
+                { id: 'triple-leaf', price: 3000 },
+                { id: 'classic-leaf', price: 2000 }
+            ];
+
+            flowers.forEach(flower => {
+                const quantity = document.getElementById(flower.id + '-quantity').value;
+                const total = quantity * flower.price;
+                document.getElementById(flower.id + '-total').innerText = 'Total: Rp ' + total;
+                totalPrice += total;
+            });
+
+            document.getElementById('result').innerText = 'Total Harga Semua: Rp ' + totalPrice;
+        }
+
+        function resetAll() {
+            const flowers = [
+                'mawar', 'lily', 'tulip', 'matahari', 'daisy', 'gerbera', 'lavender', 'sakura', 
+                'simple-flower', 'topper-love', 'topper-spiral', 'eucalyptus', 'single-leaf', 
+                'triple-leaf', 'classic-leaf'
+            ];
+
+            flowers.forEach(flower => {
+                document.getElementById(flower + '-quantity').value = 0;
+                document.getElementById(flower + '-total').innerText = '';
+            });
+
+            document.getElementById('result').innerText = '';
+        }
+
+        function minimizeForm() {
+            const form = document.querySelector('.container');
+            form.style.display = (form.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
